@@ -213,8 +213,9 @@ function audioBufferToWav(buffer: AudioBuffer): ArrayBuffer {
   writeStr(36, "data"); view.setUint32(40, samples.length * 2, true);
   let off = 44;
   for (let i = 0; i < samples.length; i++, off += 2) {
-    const s = Math.max(-1, Math.min(1, samples[i]));
-    view.setInt16(off, s < 0 ? s * 0x8000 : s * 0x7fff, true);
-  }
-  return out;
+  const s = Math.max(-1, Math.min(1, samples[i]));
+  view.setInt16(off, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+}
+
+return out;
 }
